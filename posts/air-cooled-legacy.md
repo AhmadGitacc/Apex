@@ -9,7 +9,7 @@ author: Apex & Apex
 
 There's a distinct sound when an air-cooled Porsche engine comes to life. Not the refined whisper of modern water-cooled precision, but a mechanical chorus of cooling fins, mechanical fuel injection, and metallic resonance. It's raw, honest, and utterly captivating.
 
-## The Beauty of Simplicity
+# The Beauty of Simplicity
 
 Air-cooled engines represented elegant engineering: no radiators, no coolant, no water pumps. Just an engine, a fan, and carefully designed cooling fins. Fewer systems meant fewer failure points and more direct mechanical engagement.
 
