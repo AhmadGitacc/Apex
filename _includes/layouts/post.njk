@@ -1,0 +1,74 @@
+---
+layout: layouts/base.njk
+---
+
+{% if coverImage %}
+<div class="w-full h-[60vh] min-h-[500px] relative overflow-hidden -mt-6">
+  <img
+    src="{{ coverImage }}"
+    alt="{{ title }}"
+    class="w-full h-full object-cover"
+  >
+</div>
+{% endif %}
+
+<article class="max-w-4xl mx-auto px-6 py-16">
+  <header class="mb-12 border-b border-zinc-100 pb-12">
+    {% if category %}
+    <span class="inline-block text-xs uppercase tracking-wider text-zinc-500 mb-4">{{ category }}</span>
+    {% endif %}
+
+    <h1 class="text-5xl md:text-6xl font-black italic tracking-tighter leading-tight mb-6">
+      {{ title }}
+    </h1>
+
+    {% if description %}
+    <p class="text-xl text-zinc-600 font-light leading-relaxed mb-6">
+      {{ description }}
+    </p>
+    {% endif %}
+
+    <div class="flex items-center gap-6 text-sm text-zinc-500">
+      <time datetime="{{ page.date | htmlDateString }}">{{ page.date | postDate }}</time>
+      <span>&middot;</span>
+      <span>{{ content | readingTime }}</span>
+      {% if author %}
+      <span>&middot;</span>
+      <span>{{ author }}</span>
+      {% endif %}
+    </div>
+  </header>
+
+  <div class="prose prose-lg prose-zinc max-w-none
+              prose-headings:font-black prose-headings:tracking-tight
+              prose-p:font-serif prose-p:text-zinc-700 prose-p:leading-relaxed
+              prose-a:text-zinc-900 prose-a:underline prose-a:decoration-zinc-300
+              hover:prose-a:decoration-zinc-900 prose-a:transition-colors
+              prose-img:rounded-none prose-img:w-full
+              first-letter:text-7xl first-letter:font-black first-letter:float-left
+              first-letter:mr-3 first-letter:leading-none first-letter:mt-1">
+    {{ content | safe }}
+  </div>
+
+  {%- set nextPost = collections.posts | getNextCollectionItem(page) %}
+  {%- set previousPost = collections.posts | getPreviousCollectionItem(page) %}
+  {%- if nextPost or previousPost %}
+  <nav class="mt-16 pt-16 border-t border-zinc-100">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {%- if previousPost %}
+      <a href="{{ previousPost.url | url }}" class="group block p-6 border border-zinc-100 hover:border-zinc-900 transition-colors">
+        <span class="text-xs uppercase tracking-wider text-zinc-500 mb-2 block">Previous</span>
+        <h3 class="text-xl font-bold group-hover:text-zinc-600 transition-colors">{{ previousPost.data.title }}</h3>
+      </a>
+      {% endif %}
+
+      {%- if nextPost %}
+      <a href="{{ nextPost.url | url }}" class="group block p-6 border border-zinc-100 hover:border-zinc-900 transition-colors{% if not previousPost %} md:col-start-2{% endif %}">
+        <span class="text-xs uppercase tracking-wider text-zinc-500 mb-2 block">Next</span>
+        <h3 class="text-xl font-bold group-hover:text-zinc-600 transition-colors">{{ nextPost.data.title }}</h3>
+      </a>
+      {% endif %}
+    </div>
+  </nav>
+  {%- endif %}
+</article>

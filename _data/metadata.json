@@ -1,0 +1,21 @@
+{
+  "title": "Apex & Apex",
+  "url": "https://example.com/",
+  "language": "en",
+  "description": "Art of the Drive. A minimalist journal celebrating automotive excellence.",
+  "feed": {
+    "subtitle": "Art of the Drive. A minimalist journal celebrating automotive excellence.",
+    "filename": "feed.xml",
+    "path": "/feed/feed.xml",
+    "id": "https://example.com/"
+  },
+  "jsonfeed": {
+    "path": "/feed/feed.json",
+    "url": "https://example.com/feed/feed.json"
+  },
+  "author": {
+    "name": "Apex & Apex",
+    "email": "hello@apexandapex.com",
+    "url": "https://example.com/"
+  }
+}
